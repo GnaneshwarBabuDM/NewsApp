@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Login</h1>
+{% if message == 'user_exists' %}
+    <p>The emailId already exist in the database</p>
+    <form action="login" , method="POST">
+        {% csrf_token %}
+        <p>Email ID<input type="email" , name="user_name" /></p>
+        <p>Password <input type="password" , name="password" /></p>
+        <p><input type="submit" , value="Login" /></p>
+    </form>
+{% endif %}
+
+{% if message == 'user_updated' %}
+    <p>Signup Successful</p>
+    <p>Please Login</p>
+    <form action="login" , method="POST">
+        {% csrf_token %}
+        <p>Email ID<input type="email" , name="user_name" /></p>
+        <p>Password <input type="password" , name="password" /></p>
+        <p><input type="submit" , value="Login" /></p>
+    </form>
+{% endif %}
+
+{% if message == 'first_time' %}
+    <form action="login" , method="POST">
+        {% csrf_token %}
+        <p>Email ID<input type="email" , name="user_name" /></p>
+        <p>Password <input type="password" , name="password" /></p>
+        <p><input type="submit" , value="Login" /></p>
+    </form>
+{% endif %}
+
+{% endblock %} 

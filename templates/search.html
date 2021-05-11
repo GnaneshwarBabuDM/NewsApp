@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="searchresult" method="POST">
+
+    {% csrf_token %}
+
+    Search news : <input type="text" name='search_text'><br>
+    <input type='submit', value="Search">
+</form>
+
+<form action="login_page">
+    <p><input type="submit" , value="login" /></p>
+</form>
+
+{% endblock %}
